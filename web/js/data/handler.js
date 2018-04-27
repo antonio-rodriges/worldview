@@ -32,7 +32,8 @@ import {
   dataResultsGeometryFromMODISGrid,
   dataResultsModisGridLabel,
   dataResultsOrbitFilter,
-  dataResultsDividePolygon
+  dataResultsDividePolygon,
+  dataResultsTitleLabel
 } from './results';
 
 export function dataHandlerGetByName(name) {
@@ -669,7 +670,8 @@ export function dataHandlerWELDGranuleFootprints(config, model, spec) {
       dataResultsGeometryFromCMR(),
       dataResultsDensify(),
       dataResultsTransform(model.crs),
-      dataResultsExtentFilter(model.crs, self.extents[model.crs])
+      dataResultsExtentFilter(model.crs, self.extents[model.crs]),
+      dataResultsTitleLabel()
     ];
     return chain.process(results);
   };
